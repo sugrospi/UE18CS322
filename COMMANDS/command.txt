@@ -1,0 +1,20 @@
+hdfs dfs -rm -r ~/Assignment1/output
+
+TASK1:
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper "/home/hadoop/big_data/assignment/task1/mapper.py 'airplane'" -reducer '/home/hadoop/big_data/assignment/task1/reducer.py' -input ~/Assignment1/input/ -output ~/Assignment1/output/
+TASK2:
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper "/home/hadoop/big_data/assignment/task2/mapper.py ''airplane' 100'" -reducer '/home/hadoop/big_data/assignment/task2/reducer.py' -input ~/Assignment1/input/ -output ~/Assignment1/output/
+
+
+hdfs dfs -cat ~/Assignment1/output/part*
+
+
+local:
+TASK1:
+cat plane_carriers.ndjson | '/home/hadoop/big_data/assignment/task1/mapper.py' airplane > out_map
+cat out_map |'/home/hadoop/big_data/assignment/task1/reducer.py'
+
+TASK2:
+cat plane_carriers.ndjson | '/home/hadoop/big_data/assignment/task2/mapper.py' airplane 100 > out_map
+cat out_map |'/home/hadoop/big_data/assignment/task2/reducer.py' 
+

@@ -1,0 +1,15 @@
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper '/home/hadoop/Downloads/mapper_t1.py' -reducer "/home/hadoop/Downloads/reducer_t1.py '/home/hadoop/Downloads/v" -input ~/Assignment2/ip2/ -output ~/Assignment2/output/
+
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper "/home/hadoop/Downloads/mapper_t2.py '/home/hadoop/Downloads/v'" -reducer '/home/hadoop/Downloads/reducer_t2.py' -input ~/Assignment2/output/par* -output ~/Assignment2/output1/
+
+hdfs dfs -rm -r ~/Assignment2/output/
+
+hdfs dfs -rm -r ~/Assignment2/output1/
+
+
+VIVA:
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper '/home/hadoop/Assignment2/BD_0375_1786_1819_1914_mapper_t1.py' -reducer "/home/hadoop/Assignment2/BD_0375_1786_1819_1914_reducer_t1.py '/home/hadoop/Downloads/v" -input ~/Assignment2/ip2/ -output ~/Assignment2/output/
+
+bin/hadoop jar '/usr/local/hadoop/share/hadoop/tools/lib/hadoop-streaming-3.2.1.jar' -mapper "/home/hadoop/Assignment2/BD_0375_1786_1819_1914_mapper_t2.py '/home/hadoop/Downloads/v'" -reducer '/home/hadoop/Assignment2/BD_0375_1786_1819_1914_reducer_t2.py' -input ~/Assignment2/output/par* -output ~/Assignment2/output1/
+
+
